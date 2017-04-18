@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#canvas{
+			display: block;
+			margin: 0 auto;
+			border: 1px solid blue;
+		}
+		/*绘图环境   只能改变位置（外部）不能改变颜色，大小，（内部）*/
+	</style>
+</head>
+<body>
+	 <canvas id="canvas"></canvas>
+	 <script>
+	 	var canvas = document.querySelector('#canvas')
+	 	canvas.width = 800;
+	 	canvas.height = 800;
+	 	var context =canvas.getContext('2d');
+	 	drawArc(context,300,200,100)
+	 	
+	 	function  drawArc(cxt,x,y,radius){
+	 		cxt.beginPath();
+	 		 cxt.arc(x,y,radius,0,Math.PI*2,true)      
+	 		cxt.closePath();
+	 		cxt.lineWidth = 10;
+	 		cxt.strokeStyle="red";
+	 		cxt.fillStyle ="#000"; 
+	 		cxt.fill();
+	 		cxt.stroke(); 
+	 		
+	 	}
+	 	
+	 </script>
+	 </body>

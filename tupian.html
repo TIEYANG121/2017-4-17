@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#canvas{
+			display: block;
+			margin: 0 auto;
+			border: 1px solid blue;
+		}
+		/*绘图环境   只能改变位置（外部）不能改变颜色，大小，（内部）*/
+	</style>
+</head>
+<body>
+	 <canvas id="canvas"></canvas>
+	 <script>
+		var canvas = document.querySelector('#canvas')
+	 	canvas.width = 2000;
+	 	canvas.height = 2000;
+	 	var context =canvas.getContext('2d');
+	 	
+	 	var bgi = new Image();
+	 	bgi.src="yangyang.JPG";
+		 bgi.onload=function(){
+	 		var patten = context.createPattern(bgi,"repeat");
+	 		context.fillStyle = patten
+	 		context.fillRect(0,0,2000,2000)
+		 }
+	 	
+	 </script>
+	 </body>

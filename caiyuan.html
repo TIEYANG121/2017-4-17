@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#canvas{
+			display: block;
+			margin: 0 auto;
+			border: 1px solid blue;
+		}
+		/*绘图环境   只能改变位置（外部）不能改变颜色，大小，（内部）*/
+	</style>
+</head>
+<body>
+	 <canvas id="canvas"></canvas>
+	 <script>
+	 var balls=[];
+	 window.onload =function(){
+		var canvas = document.querySelector('#canvas')
+	 	canvas.width = 800;
+	 	canvas.height = 800;
+	 	var context =canvas.getContext('2d');
+
+	 	for(var i = 0;i<100;i++){
+	 			var R=Math.floor(Math.random()*255);
+	 			var G=Math.floor(Math.random()*255);
+	 			var B=Math.floor(Math.random()*255);
+				var radius = Math.random()*20+30;
+				var aBall = {
+					x:Math.random()*(canvas.width - 2*radius) + radius,
+					y:Math.random()*(canvas.height - 2*radius) + radius,
+					radius:radius,
+					color:"rgb(" + R +','+ G +','+B + ")"
+					
+				}
+				balls[i] = aBall;
+			}
+			console.log(balls)
+			drawArc(context)
+	 }
+
+	
+
+ 	
+	 	function  drawArc(cxt,x,y,radius){
+	 		for (var i = 0; i <100; i++) {
+	 			cxt.beginPath();
+	 			cxt.arc(balls[i].x,balls[i].y,balls[i].radius,0,Math.PI*2,true)      
+	 			cxt.closePath();
+	 			cxt.fillStyle = balls[i].color;
+	 			cxt.fill();
+	 			cxt.stroke();
+	 		}
+	 		 	
+	 	};
+	 </script>
+	 </body>

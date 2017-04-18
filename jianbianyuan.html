@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#canvas{
+			display: block;
+			margin: 0 auto;
+			border: 1px solid blue;
+		}
+		/*绘图环境   只能改变位置（外部）不能改变颜色，大小，（内部）*/
+	</style>
+</head>
+<body>
+	 <canvas id="canvas"></canvas>
+	 <script>
+		var canvas = document.querySelector('#canvas')
+	 	canvas.width = 800;
+	 	canvas.height = 800;
+	 	var context =canvas.getContext('2d');
+	 	var grd = context.createRadialGradient(400,300,0,400,300,300)
+	 	grd.addColorStop(0.0,"#fff")
+	 	grd.addColorStop(1.0,"#000")
+	 	context.fillStyle = grd
+	 	context.fillRect(0,0,800,600)
+	 </script>
+	 </body>

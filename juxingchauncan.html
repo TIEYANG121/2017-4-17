@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#canvas{
+			display: block;
+			margin: 0 auto;
+			border: 1px solid blue;
+		}
+		/*绘图环境   只能改变位置（外部）不能改变颜色，大小，（内部）*/
+	</style>
+</head>
+<body>
+	 <canvas id="canvas"></canvas>
+	 <script>
+	 	var canvas = document.querySelector('#canvas')
+	 	// 获取元素
+	 	canvas.width = 800;
+	 	// canvas 宽
+	 	canvas.height = 800;
+	 	// canvas 高
+	 	var context =canvas.getContext('2d');
+	 		// 图形的效果
+	 	drawRect(context,200,300,500,400,2,"blue","rgb(0,255,0)");
+	 	drawRect(context,100,200,400,400,2,"blue","rgba(0,255,0,0.5)");
+	 
+	 	function drawRect(cxt,x,y,width,height,lineWidth,lineColor,fillcolor){
+	 		cxt.beginPath();
+	 	// 开始路径
+	 	
+	 		cxt.rect(x,y,width,height);
+	 		cxt.closePath();
+	 	// 结束路径
+
+	 		cxt.lineWidth =lineWidth;
+	 	// 线宽
+	 		cxt.strokeStyle=lineColor;
+	 	// 线的颜色
+	 		cxt.fillStyle =fillcolor;
+	 	// 内部填充          颜色
+	 		cxt.fill();
+	 	// 填充渲染
+	 		cxt.stroke();
+	 	// 路径渲染
+	 	}
+	 
+	 
+	 </script>
+</body>
+</html>
